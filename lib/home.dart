@@ -65,13 +65,26 @@ class _homeState extends State<home> {
            bottom: 
            
            TabBar(tabs: [
-             Tab(child: Icon(Icons.camera_alt, )),
-              Tab(child: Text('chats'),
+             Tab(child: Icon(Icons.people_alt)),
+              Tab(child: Row(children: [
+                Text('chats'),
+                SizedBox(width: 8,),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text('10', style: TextStyle(fontSize: 14, color: Color(0xFF075E55)),),
+                  height: 20,
+                width: 20,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  
+                ),)
+              ],)
               ),
             
            Tab(child: Text('status'),),
            Tab(child: Text('calls'),),
-
+           
               
               ]),
           
