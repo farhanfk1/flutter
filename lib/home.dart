@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_journy/chats.dart';
+import 'package:new_journy/status.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -11,6 +13,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: 1,
       length: 4,
       child: Scaffold(
         appBar: AppBar(
@@ -67,11 +70,11 @@ class _homeState extends State<home> {
            TabBar(tabs: [
              Tab(child: Icon(Icons.people_alt)),
               Tab(child: Row(children: [
-                Text('chats'),
+                Text('CHATS'),
                 SizedBox(width: 8,),
                 Container(
                   alignment: Alignment.center,
-                  child: Text('10', style: TextStyle(fontSize: 14, color: Color(0xFF075E55)),),
+                  child: Text('10', style: TextStyle(fontSize: 12, color: Color(0xFF075E55)),),
                   height: 20,
                 width: 20,
                 decoration: BoxDecoration(
@@ -82,8 +85,8 @@ class _homeState extends State<home> {
               ],)
               ),
             
-           Tab(child: Text('status'),),
-           Tab(child: Text('calls'),),
+           Tab(child: Text('STATUS'),),
+           Tab(child: Text('CALLS'),),
            
               
               ]),
@@ -96,21 +99,10 @@ class _homeState extends State<home> {
           Image.asset('assets/images/logo.jpg'),
 
           //chats screen
-
-
-          ListView.builder(itemBuilder: (context, index){
-            return ListTile(
-              leading: CircleAvatar(
-              backgroundImage: NetworkImage('https://images.pexels.com/photos/432059/pexels-photo-432059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
-              ),
-              title: Text('farhan khan'),
-              subtitle: Text(index/2==0? 'you missed audio call': 'you missed video call'),
-              trailing: Text('6:36 pm')
-            );
-          }),
+          chats(),
 
           //status screen.....
-
+          status(),
 
           ListView.builder(itemBuilder: (context, index){
             return ListTile(
